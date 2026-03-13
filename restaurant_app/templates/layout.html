@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}?v=2">
+
+<title>{% block title %}Restaurant App{% endblock %}</title>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+  <div class="logo">
+    <span class="logo-icon">🍜</span>
+    DishDash
+  </div>
+
+  <div class="nav-links">
+
+    <a href="/" class="nav-item active">
+      <span class="icon">📋</span>
+      Menu
+    </a>
+
+    <a href="/cart" class="nav-item">
+      <span class="icon">🛒</span>
+      Cart
+    </a>
+
+  </div>
+
+</nav>
+
+<main>
+{% block content %}{% endblock %}
+</main>
+
+</body>
+</html>

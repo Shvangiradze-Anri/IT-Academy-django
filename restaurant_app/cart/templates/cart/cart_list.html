@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="cart-page">
+
+<h1 class="cart-title">Shopping Cart</h1>
+
+<div class="cart-layout">
+
+<!-- CART ITEMS -->
+<div class="cart-items">
+
+{% for item in cart_items %}
+
+<div class="cart-card">
+
+<div class="cart-left">
+
+<img src="{{item.product.image}}" class="cart-image">
+
+<div class="cart-info">
+
+<h3>{{item.product.name}}</h3>
+<p class="cart-price">${{item.product.price}}</p>
+
+</div>
+
+</div>
+
+
+<div class="cart-right">
+
+<div class="quantity-box">
+
+<a href="{% url 'decrease' item.id %}" class="qty-btn">-</a>
+
+<span class="qty">{{item.quantity}}</span>
+
+<a href="{% url 'increase' item.id %}" class="qty-btn">+</a>
+
+</div>
+
+<a href="{% url 'delete_cart' item.id %}" class="delete-btn">
+🗑
+</a>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+
+<!-- SUMMARY -->
+
+<div class="summary-card">
+
+<h3>Summary</h3>
+
+<div class="summary-row">
+<span>Subtotal</span>
+<span>${{subtotal}}</span>
+</div>
+
+<div class="summary-row">
+<span>Delivery</span>
+<span class="free">Free</span>
+</div>
+
+<hr>
+
+<div class="summary-total">
+<span>Total</span>
+<span>${{subtotal}}</span>
+</div>
+
+<button class="checkout-btn">
+Checkout
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}
