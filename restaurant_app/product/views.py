@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from django.core.paginator import Paginator
 from .models import Product, Category
+
 
 def product_list(request):
 
@@ -23,6 +25,11 @@ def product_list(request):
 
     if nuts:
         products = products.filter(contains_nuts=True)
+
+    # PAGINATION
+    paginator = Paginator(products, 12)  
+    page_number = request.GET.get("page")
+    products = paginator.get_page(page_number)
 
     context = {
         "products": products,

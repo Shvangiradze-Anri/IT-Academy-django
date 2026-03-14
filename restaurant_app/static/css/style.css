@@ -238,7 +238,36 @@ body{
   gap:40px;
   align-items:flex-start;
   }
-  
+  /*                 pagination on product page            */
+
+  .pagination{
+    display:flex;
+    justify-content:center;
+    margin-bottom: 10px;
+    gap:10px;
+    margin-top:40px;
+    }
+    
+    .pagination a{
+    padding:8px 14px;
+    background:#f5f5f5;
+    text-decoration:none;
+    border-radius:6px;
+    color:#333;
+    }
+    
+    .pagination a:hover{
+    background:#ff6a0085;
+    color:white;
+    }
+    
+    .pagination .current{
+    padding:8px 14px;
+    background:#ff6a00;
+    color:white;
+    border-radius:6px;
+    }
+    
   /* CART ITEMS */
   
   .cart-items{

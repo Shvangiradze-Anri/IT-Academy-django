@@ -22,7 +22,7 @@ class Product(models.Model):
 
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
-    image = models.URLField(blank=True)   # <-- Cloudinary URL
+    image = models.URLField(blank=True)   
 
     spiciness = models.IntegerField(choices=SPICINESS_LEVELS, default=1)
 
